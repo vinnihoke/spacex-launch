@@ -10,10 +10,12 @@ const server = express()
 
 server.use(helmet());
 server.use(morgan('dev'));
-server.use(express).json();
+server.use(express.json());
 
 server.use('/graphql', graphqlHTTP({
 	schema,
 	graphiql: true
 }));
+
+module.exports = server
 
